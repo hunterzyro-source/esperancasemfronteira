@@ -64,8 +64,14 @@ function setBusy(busy) {
 }
 
 donateBtn.addEventListener("click", async () => {
-  const rawAmount = customAmount.value.trim();
-  if (rawAmount) chosenAmount = Number(rawAmount.replace(",", "."));
+  // Prioridade: botão fixo ativo > campo livre > chosenAmount já definido
+  const activeBtn = amountButtons.find((btn) => btn.classList.contains("active"));
+  if (activeBtn) {
+    chosenAmount = Number(activeBtn.dataset.amount);
+  } else {
+    const rawAmount = customAmount.value.trim();
+    if (rawAmount) chosenAmount = Number(rawAmount.replace(",", "."));
+  }
   if (!Number.isFinite(chosenAmount) || chosenAmount < 5 || chosenAmount > 10000) {
     customAmount.setCustomValidity("Digite um valor entre R$ 5 e R$ 10.000.");
     customAmount.reportValidity();
