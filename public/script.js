@@ -169,7 +169,27 @@ nav.querySelectorAll("a").forEach((link) => {
 document.getElementById("year").textContent = new Date().getFullYear();
 
 
-// Parceiros — pausa o autoplay quando o usuário interage via teclado ou toque
+// Botões "Doe agora" das cestas — pré-seleciona o valor no formulário
+document.querySelectorAll(".basket-btn[data-preset]").forEach((link) => {
+  link.addEventListener("click", () => {
+    const preset = Number(link.dataset.preset);
+    if (!preset) return;
+
+    // Verifica se existe um botão de valor fixo correspondente
+    const match = amountButtons.find((btn) => Number(btn.dataset.amount) === preset);
+    if (match) {
+      chooseAmount(match);
+    } else {
+      // Valor não está nos botões fixos — coloca no campo livre
+      amountButtons.forEach((btn) => {
+        btn.classList.remove("active");
+        btn.setAttribute("aria-pressed", "false");
+      });
+      customAmount.value = preset;
+      chosenAmount = preset;
+    }
+  });
+});
 (function () {
   const track = document.getElementById("partnersTrack");
   if (!track) return;
