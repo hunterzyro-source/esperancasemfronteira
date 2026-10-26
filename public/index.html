@@ -282,10 +282,13 @@
   <div class="modal-layer" id="modalLayer" hidden>
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button class="modal-x" id="modalClose" aria-label="Fechar">×</button>
-      <div class="modal-heart">♡</div>
+      <div class="modal-heart" aria-hidden="true">♡</div>
       <h2 id="modalTitle">Contribuição via Pix</h2>
-      <p id="modalMessage">Estamos preparando sua cobrança segura.</p>
-      <div class="selected-value">Valor selecionado: <strong id="modalAmount">R$ 25,00</strong></div>
+      <p id="modalMessage">Seu Pix está sendo gerado.</p>
+      <div class="modal-amount-block">
+        <span class="modal-amount-label">Valor escolhido</span>
+        <strong class="modal-amount-value" id="modalAmount">R$ 25,00</strong>
+      </div>
       <button class="btn btn-primary btn-wide" id="modalOk">Fechar</button>
     </div>
   </div>
