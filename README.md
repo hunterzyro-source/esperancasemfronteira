@@ -17,7 +17,7 @@ Use a chave `sk_live_` apenas no ambiente de produção protegido do servidor, d
 
 ## Vercel
 
-Os arquivos em `api/` encaminham as rotas de pagamento para Vercel Functions. Configure `LOFYPAY_SECRET` e `LOFYPAY_WEBHOOK_SECRET` como variáveis de ambiente privadas no projeto Vercel; configure `LOFYPAY_SPLIT` somente se o split estiver aprovado. O arquivo `.env.example` serve apenas como referência e não contém credenciais.
+Os arquivos estáticos do site ficam em `public/`, para serem publicados pelo CDN do Vercel. Os arquivos em `api/` encaminham as rotas de pagamento para Vercel Functions. Configure `LOFYPAY_SECRET` e `LOFYPAY_WEBHOOK_SECRET` como variáveis de ambiente privadas no projeto Vercel; configure `LOFYPAY_SPLIT` somente se o split estiver aprovado. O arquivo `.env.example` serve apenas como referência e não contém credenciais.
 
 ## Antes de divulgar
 

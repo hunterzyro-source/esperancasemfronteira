@@ -3,7 +3,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const crypto = require("node:crypto");
 
-const root = __dirname;
+const root = path.join(__dirname, "public");
 const port = Number(process.env.PORT || 3000);
 const baseUrl = "https://app.lofypay.com/api/v1";
 const mimeTypes = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml" };
