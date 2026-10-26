@@ -20,3 +20,7 @@ Use a chave `sk_live_` apenas no ambiente de produção protegido do servidor, d
 As chaves que foram compartilhadas durante a configuração devem ser revogadas e recriadas no painel LofyPay. Configure as novas credenciais apenas no ambiente privado de hospedagem. Use sandbox para validar o fluxo antes de trocar para produção.
 
 Complete o site com a razão social, CNPJ, endereço, contato oficial, documentação da organização, objetivo e orçamento da campanha, parceiros e relatórios de execução. Não publique dados pessoais de doadores no painel público.
+
+## Crédito de imagem
+
+A foto ilustrativa do hero mostra voluntários preparando Likuni Phala no Malawi em 2005, por Thomas Black57, via Wikimedia Commons; foi liberada em domínio público. Ela não retrata uma ação da Esperança Sem Fronteiras. Fonte: https://commons.wikimedia.org/wiki/File:Mary%27s_Meals_Volunteers_Malawi.JPG
