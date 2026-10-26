@@ -28,7 +28,8 @@ function chooseAmount(button) {
     item.classList.toggle("active", active);
     item.setAttribute("aria-pressed", String(active));
   });
-  customAmount.value = "";
+  // Preenche o campo com o valor selecionado para o usuário ver
+  customAmount.value = chosenAmount;
 }
 
 amountButtons.forEach((button) => {
