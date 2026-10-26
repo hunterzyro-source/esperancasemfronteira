@@ -1,0 +1,12 @@
+{
+  "name": "esperanca-sem-fronteiras",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site institucional e checkout Pix da Esperança Sem Fronteiras",
+  "scripts": {
+    "start": "node --env-file=.env server.js"
+  },
+  "engines": {
+    "node": ">=20.6"
+  }
+}
