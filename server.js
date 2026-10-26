@@ -131,6 +131,12 @@ async function handle(req, res) {
   });
 }
 
-http.createServer((req, res) => {
-  handle(req, res).catch(() => json(res, 500, { error: "Ocorreu um erro ao processar sua solicitação." }));
-}).listen(port, () => console.log(`Esperança Sem Fronteiras disponível na porta ${port}.`));
+function app(req, res) {
+  return handle(req, res).catch(() => json(res, 500, { error: "Ocorreu um erro ao processar sua solicitação." }));
+}
+
+if (require.main === module) {
+  http.createServer(app).listen(port, () => console.log(`Esperança Sem Fronteiras disponível na porta ${port}.`));
+}
+
+module.exports = app;
