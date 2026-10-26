@@ -132,7 +132,7 @@ async function watchPayment() {
     const data = await response.json();
     if (response.ok && data.status === "PAID_OUT") {
       pixState.textContent = "Pagamento confirmado · obrigado pela contribuição!";
-      paymentNote.textContent = "Pagamento confirmado pela LofyPay.";
+      paymentNote.textContent = "Pagamento confirmado. Obrigado pela contribuição!";
       activeTransaction = null;
       return;
     }
