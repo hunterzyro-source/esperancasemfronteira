@@ -203,7 +203,6 @@
           <div class="amount-input"><input id="donorEmail" type="email" maxlength="160" autocomplete="email" placeholder="voce@exemplo.com"></div>
           <button class="btn btn-primary btn-wide" id="donateBtn" type="button">Gerar Pix <span>→</span></button>
           <div class="payment-note" id="paymentNote" role="status"><span>♧</span> Pagamento via Pix. A confirmação pode levar alguns instantes.</div>
-          <div class="pix-result" id="pixResult" hidden><div class="pix-state" id="pixState">Pix criado · aguardando pagamento</div><img id="pixQr" alt="QR Code Pix" hidden><label class="custom-label" for="pixCode">Pix copia e cola</label><textarea id="pixCode" rows="4" readonly aria-label="Código Pix copia e cola"></textarea><button class="btn btn-primary btn-wide" id="copyPix" type="button">Copiar código Pix</button></div>
           <div class="donation-bottom"><span>Contribuição segura</span><span>Pagamento via Pix</span></div>
         </div>
       </div>
@@ -282,14 +281,47 @@
   <div class="modal-layer" id="modalLayer" hidden>
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button class="modal-x" id="modalClose" aria-label="Fechar">×</button>
-      <div class="modal-heart" aria-hidden="true">♡</div>
-      <h2 id="modalTitle">Contribuição via Pix</h2>
-      <p id="modalMessage">Seu Pix está sendo gerado.</p>
-      <div class="modal-amount-block">
-        <span class="modal-amount-label">Valor escolhido</span>
-        <strong class="modal-amount-value" id="modalAmount">R$ 25,00</strong>
+
+      <!-- TELA 1: gerando -->
+      <div class="modal-step" id="stepGenerating">
+        <div class="modal-heart" aria-hidden="true">♡</div>
+        <h2 id="modalTitle">Gerando seu Pix…</h2>
+        <p id="modalMessage">Aguarde um instante.</p>
+        <div class="modal-amount-block">
+          <span class="modal-amount-label">Valor escolhido</span>
+          <strong class="modal-amount-value" id="modalAmount">R$ 25,00</strong>
+        </div>
+        <div class="modal-spinner" aria-hidden="true"></div>
       </div>
-      <button class="btn btn-primary btn-wide" id="modalOk">Fechar</button>
+
+      <!-- TELA 2: QR gerado -->
+      <div class="modal-step" id="stepQr" hidden>
+        <div class="modal-heart" aria-hidden="true">♡</div>
+        <h2>Pix gerado</h2>
+        <div class="modal-amount-block">
+          <span class="modal-amount-label">Valor</span>
+          <strong class="modal-amount-value" id="modalAmountQr">R$ 25,00</strong>
+        </div>
+        <div class="pix-state" id="pixState">Aguardando pagamento…</div>
+        <img id="pixQr" alt="QR Code Pix" class="modal-qr" hidden>
+        <label class="custom-label" for="pixCode">Pix copia e cola</label>
+        <textarea id="pixCode" rows="3" readonly aria-label="Código Pix copia e cola" class="modal-pixcode"></textarea>
+        <button class="btn btn-primary btn-wide" id="copyPix" type="button">Copiar código Pix</button>
+        <button class="btn-link modal-close-link" id="modalOk">Fechar</button>
+      </div>
+
+      <!-- TELA 3: confirmado -->
+      <div class="modal-step" id="stepThanks" hidden>
+        <div class="modal-thanks-icon" aria-hidden="true">🌍</div>
+        <h2 class="modal-thanks-title">Obrigado pela sua doação!</h2>
+        <p class="modal-thanks-msg">Sua contribuição vai ajudar a levar alimento e esperança para crianças que mais precisam. Juntos fazemos a diferença! ❤️</p>
+        <div class="modal-amount-block">
+          <span class="modal-amount-label">Valor confirmado</span>
+          <strong class="modal-amount-value" id="modalAmountThanks">R$ 25,00</strong>
+        </div>
+        <button class="btn btn-primary btn-wide" id="modalClose2">Fechar</button>
+      </div>
+
     </div>
   </div>
   <script src="script.js"></script>
