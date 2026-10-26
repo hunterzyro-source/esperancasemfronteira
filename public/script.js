@@ -167,3 +167,14 @@ nav.querySelectorAll("a").forEach((link) => {
   });
 });
 document.getElementById("year").textContent = new Date().getFullYear();
+
+
+// Parceiros — pausa o autoplay quando o usuário interage via teclado ou toque
+(function () {
+  const track = document.getElementById("partnersTrack");
+  if (!track) return;
+  track.addEventListener("focusin", () => { track.style.animationPlayState = "paused"; });
+  track.addEventListener("focusout", () => { track.style.animationPlayState = "running"; });
+  track.addEventListener("touchstart", () => { track.style.animationPlayState = "paused"; }, { passive: true });
+  track.addEventListener("touchend", () => { setTimeout(() => { track.style.animationPlayState = "running"; }, 2000); }, { passive: true });
+})();
